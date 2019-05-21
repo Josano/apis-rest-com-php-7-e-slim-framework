@@ -39,7 +39,7 @@ class LojasDAO extends Conexao
     }
 
     public function updateLoja(LojaModel $loja): void
-    { 
+    {
         $statement = $this->pdo
             ->prepare('UPDATE lojas SET
                     nome = :nome,
