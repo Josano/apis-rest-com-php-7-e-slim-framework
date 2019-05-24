@@ -38,5 +38,70 @@ final class ProdutoModel
         $this->id = $id;
         return $this;
     }
-    // TODO: Terminar de montar o model
+
+    /**
+     * @return int
+     */
+    public function getLojaId(): int
+    {
+        return $this->loja_id;
+    }
+
+    /**
+     * @param int $loja_id
+     */
+    public function setLojaId(int $loja_id)
+    {
+        $this->loja_id = $loja_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string $nome
+     */
+    public function setNome(string $nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPreco(): float
+    {
+        return $this->preco;
+    }
+
+    /**
+     * @param float $preco
+     */
+    public function setPreco(float $preco)
+    {
+        $this->preco = $preco;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantidade(): int
+    {
+        return $this->quantidade;
+    }
+
+    /**
+     * @param int $quantidade
+     */
+    public function setQuantidade(int $quantidade)
+    {
+        $this->quantidade = $quantidade;
+    }
+
+
 }
