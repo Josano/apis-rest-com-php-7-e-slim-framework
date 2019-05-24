@@ -2,7 +2,7 @@
 
 namespace App\DAO\MySQL\GerenciadorDeLojas;
 
-use App\Models\MySQL\GerenciadorDeLojas\produtoModel;
+use App\Models\MySQL\GerenciadorDeLojas\ProdutoModel;
 
 class  ProdutosDAO extends Conexao
 {

@@ -1,5 +1,5 @@
 <?php
-namespace App\Models\MySQL\CodeeasyGerenciadorDeLojas;
+namespace App\Models\MySQL\GerenciadorDeLojas;
 final class ProdutoModel
 {
     /**
