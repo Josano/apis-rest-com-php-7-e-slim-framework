@@ -50,9 +50,10 @@ final class ProdutoModel
     /**
      * @param int $loja_id
      */
-    public function setLojaId(int $loja_id)
+    public function setLojaId(int $loja_id): ProdutoModel
     {
         $this->loja_id = $loja_id;
+        return $this;
     }
 
     /**
@@ -66,9 +67,10 @@ final class ProdutoModel
     /**
      * @param string $nome
      */
-    public function setNome(string $nome)
+    public function setNome(string $nome): ProdutoModel
     {
         $this->nome = $nome;
+        return $this;
     }
 
     /**
@@ -76,15 +78,16 @@ final class ProdutoModel
      */
     public function getPreco(): float
     {
-        return $this->preco;
+        return (float)$this->preco;
     }
 
     /**
      * @param float $preco
      */
-    public function setPreco(float $preco)
+    public function setPreco(float $preco): ProdutoModel
     {
         $this->preco = $preco;
+        return $this;
     }
 
     /**
@@ -92,15 +95,16 @@ final class ProdutoModel
      */
     public function getQuantidade(): int
     {
-        return $this->quantidade;
+        return (int)$this->quantidade;
     }
 
     /**
      * @param int $quantidade
      */
-    public function setQuantidade(int $quantidade)
+    public function setQuantidade(int $quantidade): ProdutoModel
     {
         $this->quantidade = $quantidade;
+        return $this;
     }
 
 

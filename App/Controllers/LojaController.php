@@ -14,6 +14,7 @@ final class LojaController
         $response = $response->withJson($lojas);
         return $response;
     }
+
     public function insertLoja(Request $request, Response $response, array $args): Response
     {
         $data = $request->getParsedBody();

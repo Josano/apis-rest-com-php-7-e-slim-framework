@@ -1,7 +1,6 @@
 <?php
 
 namespace App\DAO\MySQL\GerenciadorDeLojas;
-
 use App\Models\MySQL\GerenciadorDeLojas\ProdutoModel;
 
 class  ProdutosDAO extends Conexao
@@ -24,5 +23,25 @@ class  ProdutosDAO extends Conexao
         $statement->execute();
         $produtos = $statement->fetchAll(\PDO::FETCH_ASSOC);
         return $produtos;
+    }
+
+    public function InsertLoja(ProdutoModel $produto) : void
+    {
+        $statement = $this->pdo
+            ->prepare('INSERT INTO produtos VALUES(
+                null,
+                :loja_id,
+                :nome,
+                :preco,
+                :quantidade
+                
+            );');
+        $statement->execute([
+            'loja_id' => $produto->getLojaId(),
+            'nome' => $produto->getNome(),
+            'preco' => $produto->getPreco(),
+            'quantidade' => $produto->getQuantidade()
+
+        ]);
     }
 }
