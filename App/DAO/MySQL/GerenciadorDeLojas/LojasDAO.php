@@ -55,13 +55,13 @@ class LojasDAO extends Conexao
             'id' => $loja->getId()
         ]);
     }
+
     public function deleteLoja(int $id): void
     {
         $statement = $this->pdo
             ->prepare('DELETE FROM produtos WHERE loja_id = :id;
                 DELETE FROM lojas WHERE id = :id;
             ');
-
         $statement->execute([
             'id' => $id
         ]);

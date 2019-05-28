@@ -27,7 +27,7 @@ final class ProdutoController
             ->setNome($data['nome'])
             ->setPreco($data['preco'])
             ->setQuantidade($data['quantidade']);
-        $produtosDAO->InsertLoja($produto);
+        $produtosDAO->InsertProduto($produto);
 
         $response = $response->withJson([
             'message' => 'Produto inserido  com sucesso!'
@@ -38,10 +38,29 @@ final class ProdutoController
 
     public function updateProduto(Request $request, Response $response, array $args): Response
     {
+        $data = $request->getParsedBody();
+        $produtosDAO = new ProdutosDAO();
+        $produto = new ProdutoModel();
+        $produto->setId((int)$data['id'])
+            ->setNome($data['nome'])
+            ->setPreco($data['preco'])
+            ->setQuantidade($data['quantidade']);
+        $produtosDAO->updateProduto($produto);
+        $response = $response->withJson([
+            'message' => 'Produto alterada com sucesso!'
+        ]);
         return $response;
     }
     public function deleteProduto(Request $request, Response $response, array $args): Response
     {
+        $queryParams = $request->getParsedBody();
+        $produtosDAO = new ProdutosDAO();
+        $id = (int)$queryParams['id'];
+        $produtosDAO->deleteProduto($id);
+
+        $response = $response->withJson([
+            'message' => 'Produto excluído com sucesso!'
+        ]);
         return $response;
     }
 }

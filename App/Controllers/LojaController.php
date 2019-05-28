@@ -48,6 +48,7 @@ final class LojaController
         ]);
         return $response;
     }
+
     public function deleteLoja(Request $request, Response $response, array $args): Response
     {
         $queryParams = $request->getParsedBody();

@@ -25,7 +25,7 @@ class  ProdutosDAO extends Conexao
         return $produtos;
     }
 
-    public function InsertLoja(ProdutoModel $produto) : void
+    public function InsertProduto(ProdutoModel $produto) : void
     {
         $statement = $this->pdo
             ->prepare('INSERT INTO produtos VALUES(
@@ -43,5 +43,33 @@ class  ProdutosDAO extends Conexao
             'quantidade' => $produto->getQuantidade()
 
         ]);
+    }
+
+    public function updateProduto(ProdutoModel $produto): void
+    {
+        $statement = $this->pdo
+            ->prepare('UPDATE produtos SET
+                    nome = :nome,
+                    preco = :preco,
+                    quantidade = :quantidade
+                WHERE
+                    id = :id
+            ;');
+        $statement->execute([
+            'nome' => $produto->getNome(),
+            'preco' => $produto->getPreco(),
+            'quantidade' => $produto->getQuantidade(),
+            'id' => $produto->getId()
+        ]);
+    }
+
+    public function deleteProduto(int $id): void
+    { 
+        $statement = $this->pdo
+            ->prepare('DELETE FROM produtos WHERE id = :id;
+            ');
+        $statement->execute([
+            'id' => $id
+        ]);;
     }
 }
